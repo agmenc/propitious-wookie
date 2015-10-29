@@ -7,6 +7,6 @@ Coding test submission for the VOA project
 * I've used sbt to create my Play application, not the Typesafe Activator or Play itself. This goes against most of the tutorials, but seemed MUCH neater.
 
 ## Instructions
-# Clone locally
-# ```sbt```
-# ```~ run```
+* Clone locally
+* ```sbt```
+* ```~ run```
