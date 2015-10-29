@@ -1,1 +1,2 @@
-GET / controllers.Application.index()
+GET /       controllers.Application.index()
+GET /comet  controllers.Application.comet()
