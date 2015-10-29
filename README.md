@@ -10,3 +10,7 @@ Coding test submission for the VOA project
 * Clone locally
 * ```sbt```
 * ```~ run```
+
+
+## Observations
+* Good IntelliJ integration with Play, e.g. template parsing and directory structure awareness

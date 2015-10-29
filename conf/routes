@@ -1,2 +1,7 @@
-GET /       controllers.Application.index()
-GET /comet  controllers.Application.comet()
+#VOA
+GET        /              controllers.voa.VoaApp.demo()
+
+# Cruft
+GET        /demo          controllers.Application.demo()
+GET        /comet         controllers.Application.comet()
+GET        /socket        controllers.Application.socket()
