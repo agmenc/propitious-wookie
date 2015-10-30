@@ -1,5 +1,5 @@
 #VOA
-GET        /              controllers.voa.VoaApp.demo()
+GET        /              controllers.dvla.Dvla.index()
 
 # Cruft
 GET        /demo          controllers.Application.demo()

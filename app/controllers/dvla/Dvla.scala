@@ -1,9 +1,9 @@
-package controllers.voa
+package controllers.dvla
 
 import play.api.mvc.{Action, Controller}
 
-class VoaApp extends Controller {
+class Dvla extends Controller {
   def index = Action { implicit request =>
-    Ok(views.html.voa.vehicle())
+    Ok(views.html.dvla.vehicle())
   }
 }
