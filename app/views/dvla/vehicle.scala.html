@@ -1,7 +1,17 @@
-@wrapper(title = "Home") {
+@(person: Form[VehicleSearchForm])(implicit messages: Messages)
+
+@import helper._
+
+@wrapper(title = "DVLA Vehicle Tax Search") {
 
   <h1>Vehicle data form</h1>
 
-  <p>goes here</p>
+  @form(action = routes.Dvla.index()) {
+    @inputText(person("name"))
+    @inputText(person("make"))
 
+    <div class="buttons">
+      <input type="submit" value="Search"/>
+    </div>
+  }
 }
