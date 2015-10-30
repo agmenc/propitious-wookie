@@ -1,5 +1,6 @@
 package controllers
 
+import play.Logger
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.i18n._
@@ -10,27 +11,30 @@ import javax.inject._
 class Dvla @Inject() (val messagesApi: MessagesApi) extends Controller with I18nSupport {
   val searchForm: Form[VehicleSearchForm] = Form {
     mapping(
-      "name" -> nonEmptyText,
+      "numberPlate" -> nonEmptyText,
       "make" -> nonEmptyText
     )(VehicleSearchForm.apply)(VehicleSearchForm.unapply)
   }
 
   def index = Action { implicit request =>
-    // Ok(views.html.index(searchForm))
     Ok(views.html.dvla.vehicle(searchForm))
   }
 
-  def searchVehicle = Action { implicit request =>
+  def search = Action { implicit request =>
     searchForm.bindFromRequest.fold(
       errorForm => {
+        Logger.error(s"Boom: $errorForm")
         Ok(views.html.dvla.vehicle(errorForm))
       },
       results => {
-        println(s"results: ${results}")
-        Redirect(routes.Dvla.index)
+        Redirect(routes.Dvla.results(results.numberPlate))
       }
     )
   }
+
+  def results(plate: String) = Action { implicit request =>
+    Ok(views.html.dvla.results(plate))
+  }
 }
 
-case class VehicleSearchForm(name: String, make: String)
+case class VehicleSearchForm(numberPlate: String, make: String)
