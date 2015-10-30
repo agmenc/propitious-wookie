@@ -1,8 +1,14 @@
-@(results: String)(implicit messages: Messages)
+@(results: Vehicle)(implicit messages: Messages)
 
 @wrapper(title = "DVLA Vehicle Tax Search Results") {
 
   <h1>Vehicle tax information</h1>
-  @results
+
+  <h3>Vehicle tax information found:</h3>
+  <ul>
+    <li>Number Plate: @results.numberPlate</li>
+    <li>Make: @results.make.name</li>
+    <li>Revenue weight: @{results.revenueWeight}kg</li>
+  </ul>
 
 }

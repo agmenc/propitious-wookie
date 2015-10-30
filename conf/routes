@@ -1,4 +1,3 @@
 #DVLA
 GET        /                 controllers.Dvla.index
 POST       /search           controllers.Dvla.search
-GET        /results/:plate   controllers.Dvla.results(plate)

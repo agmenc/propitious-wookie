@@ -1,12 +1,12 @@
 package controllers
 
-import play.Logger
+import javax.inject._
+
+import data.VehicleRepository
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.i18n._
 import play.api.mvc._
-
-import javax.inject._
 
 class Dvla @Inject() (val messagesApi: MessagesApi) extends Controller with I18nSupport {
   val searchForm: Form[VehicleSearchForm] = Form {
@@ -23,20 +23,16 @@ class Dvla @Inject() (val messagesApi: MessagesApi) extends Controller with I18n
   def search = Action { implicit request =>
     searchForm.bindFromRequest.fold(
       errorForm => {
-        Logger.error(s"Boom: $errorForm")
         Ok(views.html.dvla.search(errorForm))
       },
-      results => {
-        Redirect(routes.Dvla.results(results.numberPlate))
+      completedForm => {
+        VehicleRepository.search(completedForm).fold(
+          Ok(views.html.dvla.vehicleNotFound())
+        ) (
+          vehicle => Ok(views.html.dvla.results(vehicle))
+        )
       }
     )
-  }
-
-  def results(plate: String) = Action { implicit request =>
-    // model.lookup(plate)
-    Ok(views.html.dvla.results(plate))
-
-    // Return a not-found view, as per https://www.vehicleenquiry.service.gov.uk/
   }
 }
 
