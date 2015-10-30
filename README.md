@@ -4,8 +4,10 @@ Coding test submission for the VOA project. Repo name suggested by GitHub.
 
 ## Notes and Assumptions
 * This is the first time I have used Play.
-* I had one evening and one morning in which to learn Play and complete the test submission before the deadline. I've left out: DB integration, pretty CSS/Bootstrap, AJAX/Comet/WebSockets.
+* I had one evening and one morning in which to learn Play and complete the test submission before the deadline.
+* Therefore, I've left out: DB integration, pretty CSS/Bootstrap, AJAX/Comet/WebSockets.
 * Most of my time was spent learning how to wire stuff together.
+* If I took it further, my next step would be to work out how to mock application state (like the list of Vehicles) so that my tests were independent.
 * My previous Scala web frameworks experience: Lift, Spray, Finatra, Naive-http
 
 ## Instructions
