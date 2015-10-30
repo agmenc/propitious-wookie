@@ -1,4 +1,4 @@
-@(searchForm: Form[VehicleSearchForm])(implicit messages: Messages)
+@(searchForm: Form[VehicleSearchForm], makes: List[String])(implicit messages: Messages)
 
 @import helper._
 
@@ -8,7 +8,7 @@
 
   @form(action = routes.Dvla.search()) {
     @inputText(searchForm("numberPlate"))
-    @inputText(searchForm("make"))
+    @select(field = searchForm("make"), options = options(makes))
 
     <div class="buttons">
       <input type="submit" value="Search"/>
