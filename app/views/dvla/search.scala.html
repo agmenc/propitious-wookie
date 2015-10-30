@@ -4,7 +4,7 @@
 
 @wrapper(title = "DVLA Vehicle Tax Search") {
 
-  <h1>Vehicle data form</h1>
+  <h1>Details of the vehicle being checked</h1>
 
   @form(action = routes.Dvla.search()) {
     @inputText(searchForm("numberPlate"))
@@ -14,4 +14,15 @@
       <input type="submit" value="Search"/>
     </div>
   }
+
+  <br/>
+  <br/>
+  <div style="color: grey">
+    Pre-loaded test data:
+    <ul>
+      <li>HK55 TFU - Land Rover</li>
+      <li>FN02 KTD - Audi</li>
+      <li>MC65 MCL - McLaren</li>
+    </ul>
+  </div>
 }

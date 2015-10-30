@@ -33,7 +33,10 @@ class Dvla @Inject() (val messagesApi: MessagesApi) extends Controller with I18n
   }
 
   def results(plate: String) = Action { implicit request =>
+    // model.lookup(plate)
     Ok(views.html.dvla.results(plate))
+
+    // Return a not-found view, as per https://www.vehicleenquiry.service.gov.uk/
   }
 }
 
