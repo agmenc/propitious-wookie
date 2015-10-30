@@ -2,8 +2,3 @@
 GET        /                 controllers.Dvla.index
 POST       /search           controllers.Dvla.search
 GET        /results/:plate   controllers.Dvla.results(plate)
-
-# Cruft
-GET        /demo          controllers.Application.demo()
-GET        /comet         controllers.Application.comet()
-GET        /socket        controllers.Application.socket()

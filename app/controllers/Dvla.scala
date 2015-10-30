@@ -17,14 +17,14 @@ class Dvla @Inject() (val messagesApi: MessagesApi) extends Controller with I18n
   }
 
   def index = Action { implicit request =>
-    Ok(views.html.dvla.vehicle(searchForm))
+    Ok(views.html.dvla.search(searchForm))
   }
 
   def search = Action { implicit request =>
     searchForm.bindFromRequest.fold(
       errorForm => {
         Logger.error(s"Boom: $errorForm")
-        Ok(views.html.dvla.vehicle(errorForm))
+        Ok(views.html.dvla.search(errorForm))
       },
       results => {
         Redirect(routes.Dvla.results(results.numberPlate))
